@@ -1,0 +1,12 @@
+extends layout.pug
+block title 
+    Shop
+block content
+    h1 Product List
+    if products.length > 0
+        ul
+            each product in products
+                li= product.title
+    else
+        p No Products
+

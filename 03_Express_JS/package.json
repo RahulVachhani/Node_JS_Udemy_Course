@@ -1,0 +1,17 @@
+{
+  "name": "03_express_js",
+  "version": "1.0.0",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node --watch app.js",
+    "start1": "node --watch app1.js",
+    "start2": "node --watch app2.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

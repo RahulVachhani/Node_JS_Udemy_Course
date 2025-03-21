@@ -1,0 +1,19 @@
+{
+  "name": "04_template_engine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node --watch app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.0.1",
+    "express-handlebars": "^8.0.1",
+    "pug": "^3.0.3"
+  }
+}

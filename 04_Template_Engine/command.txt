@@ -1,0 +1,4 @@
+npm install  --save ejs pug express-handlebars
+
+
+app.set('view engine', 'pug')

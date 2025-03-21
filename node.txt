@@ -1,0 +1,15 @@
+app.use --> this is middleware
+app.get  --> this is only work for get request
+app.post  --> this is only work for post request
+
+
+app.use(express.urlencoded())  --> this is used when we want to get data from req.body
+
+
+app.use('/admin',adminRoutes)  --> this is like nested routes. first /admin/ then all routes in adminRoutes includes
+
+ 
+ app.use(express.static(path.join(import.meta.dirname, 'public')))   --> this is used when we want to publicallly available files 
+
+
+ app.set('view engine', 'pug')  --> this is used when we want to show dynamic data in templates

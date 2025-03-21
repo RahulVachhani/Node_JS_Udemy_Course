@@ -1,0 +1,64 @@
+import { Sequelize } from "sequelize"
+
+const sequelize = new Sequelize('nodejs', 'root', 'admin@1234', {
+    dialect: 'mysql', 
+    host: 'localhost'
+})
+
+export default sequelize
+
+---------------------------------------------------------------------------
+
+import { Sequelize } from "sequelize";
+import sequelize from "../utils/sequelizeDatabase.js";
+
+const Product = sequelize.define('product1', {
+    id: {
+        type: Sequelize.INTEGER,
+        autoIncrement: true,
+        allowNull: false,
+        primaryKey: true
+    },
+    title: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    price: {
+        type: Sequelize.DOUBLE,
+        allowNull: false
+    },
+    imageUrl: {
+        type: Sequelize.STRING,
+        allowNull: false,
+    },
+    description: {
+        type: Sequelize.STRING,
+        allowNull: false
+    }
+})
+
+
+export default Product
+
+
+------------------------------------------------------------------------------------------
+
+sequelize
+    .sync()
+    .then(result => {
+        // console.log(result);
+        app.listen(3000, () => {
+            console.log(`server is listening at http://localhost:3000`);    
+        })
+    })
+    .catch(err => {
+        console.log(err);
+    })
+
+
+--------------------------------------------------------------------------------------------
+
+
+ Prod.findByPk(prodId)
+ Product.findOne({ where: { id: 1 } });
+ Prod.findAll()
