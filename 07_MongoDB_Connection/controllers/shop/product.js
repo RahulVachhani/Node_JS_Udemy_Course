@@ -1,31 +1,8 @@
 import Product from "../../models/product.js"
-import Prod from "../../models/prod.js"
-import Order from "../../models/order.js"
 
 export const showAllProduct = (req, res, next) => {
-    // Product.fetchAll()
-    //     .then((result) => {
-    //         res.render('shop/products', {
-    //             products: result[0],
-    //             pageTitle: 'Shop',
-    //             path: '/'
-    //         });
-    //     })
-    //     .catch(err => console.log(`
-    // Error in showAllProduict`))
-
-    // Prod.findAll()
-    //     .then(result => {
-    //         // console.log(result)
-    //         res.render('shop/products', {
-    //             products: result,
-    //             pageTitle: 'Shop',
-    //             path: '/'
-    //         });
-    //     })
-    //     .catch(err => console.log(`Error in show all product : ${err}`))
-
-    req.user.getProduct1s()
+   
+    Product.fetchAll()
         .then(products => {
             res.render('shop/products', {
                 products: products,
@@ -37,14 +14,7 @@ export const showAllProduct = (req, res, next) => {
 }
 
 export const showOrders = (req, res, next) => {
-    // req.user.getOrders()
-    //     .then(orders => {
-    //         return orders[0].getProduct1s()
-    //     })
-    //     .then( products => {
-    //         console.log(products)
-
-    //     })
+   
     req.user.getOrders({include: ['product1s']})
         .then(orders => {
             console.log(orders);
@@ -88,20 +58,8 @@ export const createOrder = (req, res, next) => {
 
 export const getProduct = (req, res, next) => {
     const prodId = req.params.productId
-    // console.log(prodId)
-    // Product.findById(prodId)
-    //     .then((product) => {
-    //         console.log(product[0][0])
-    //         res.render('shop/product-details', {
-    //             product: product[0][0],
-    //             pageTitle: 'Product Details',
-    //             path: '/product-details'
-    //         });
-    //     })
-    //     .catch(err => console.log(err));
-
-    // Prod.findOne({where: {id:prodId}})
-    Prod.findByPk(prodId)
+  
+    Product.findById(prodId)
         .then(product => {
             console.log(product)
             res.render('shop/product-details', {

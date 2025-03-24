@@ -41,7 +41,7 @@ export const addProduct = (req, res, next) => {
         description: description
     })
         .then(result => {
-            console.log(result)
+            // console.log(result)
             res.redirect('/admin/add-product')
         })
         .catch(err => console.log(`Error in add product : ${err}`))
@@ -154,16 +154,27 @@ export const showProduct = (req, res, next) => {
     //     })
     //     .catch(err => console.log(`Error in show Product Admin`))
 
-    Prod.findAll()
-        .then(result => {
-            // console.log(result)
+    // Prod.findAll()
+    //     .then(result => {
+    //         // console.log(result)
+    //         res.render('admin/show-products', {
+    //             products: result,
+    //             pageTitle: 'Shop',
+    //             path: '/admin/show-products'
+    //         });
+    //     })
+    //     .catch(err => console.log(`Error in show all product : ${err}`))
+
+    req.user.getProduct1s()
+        .then(products => {
             res.render('admin/show-products', {
-                products: result,
+                products: products,
                 pageTitle: 'Shop',
                 path: '/admin/show-products'
             });
         })
         .catch(err => console.log(`Error in show all product : ${err}`))
+
 }
 
 

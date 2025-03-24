@@ -6,15 +6,15 @@ const router = express.Router()
 
 router.get('/', shop.showAllProduct)
 
-router.get('/cart', cart.showCart)
+// router.get('/cart', cart.showCart)
 
 router.post('/cart', cart.AddToCart)
 
-router.post('/delete-cart', cart.deleteCartItem)
+// router.post('/delete-cart', cart.deleteCartItem)
 
-router.get('/orders', shop.showOrders)
+// router.get('/orders', shop.showOrders)
 
-router.post('/create-order', shop.createOrder)
+// router.post('/create-order', shop.createOrder)
 
 router.get('/product/:productId', shop.getProduct)
 
