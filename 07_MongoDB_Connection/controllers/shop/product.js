@@ -15,7 +15,7 @@ export const showAllProduct = (req, res, next) => {
 
 export const showOrders = (req, res, next) => {
    
-    req.user.getOrders({include: ['product1s']})
+    req.user.getOrders()
         .then(orders => {
             console.log(orders);
             
@@ -24,32 +24,12 @@ export const showOrders = (req, res, next) => {
                 path: '/orders',
                 orders : orders
             })
+            // res.redirect('/')
         })
 }
 
 export const createOrder = (req, res, next) => {
-    let fetchedCart;
-    req.user.getCart()
-        .then(cart => {
-            fetchedCart = cart
-            return cart.getProduct1s()
-        })
-        .then(products => {
-            // console.log(products);
-            return req.user.createOrder()
-                .then(order => {
-
-                    return order.addProduct1s(products.map(product => {
-                        product.orderItem = { quantity: product.cartItem.quantity }
-                        return product
-                    }))
-                })
-                .catch(err => console.log('Error in create order', err))
-
-        })
-        .then(result => {
-            return fetchedCart.setProduct1s(null)
-        })
+    req.user.addOrder()
         .then(() => {
             res.redirect('/orders')
         })
@@ -61,7 +41,7 @@ export const getProduct = (req, res, next) => {
   
     Product.findById(prodId)
         .then(product => {
-            console.log(product)
+            // console.log(product)
             res.render('shop/product-details', {
                 product: product,
                 pageTitle: product.title || 'Product Details',

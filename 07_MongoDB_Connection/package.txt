@@ -2,3 +2,4 @@ express
 ejs
 mysql2
 sequelize
+mongodb

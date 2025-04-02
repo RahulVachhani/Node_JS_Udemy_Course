@@ -1,0 +1,7 @@
+express
+ejs
+mongodb
+mongoose
+connect-mongodb-session
+express-session
+bcryptjs

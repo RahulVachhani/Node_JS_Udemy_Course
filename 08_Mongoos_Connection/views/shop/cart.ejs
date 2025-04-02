@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../include/head.ejs') %>
+
+    <body>
+        <%- include('../include/navbar.ejs') %>
+            <h1>Cart</h1>
+            <h2>Total Price : <%= cart.totalPrice ? cart.totalPrice : 0 %>
+            </h2>
+            <% if (cart.length > 0) { %>
+                <div class="grid ">
+                    <% for (let product of cart) { %>
+                        <article class="card product-item">
+                            <header class="card__header">
+                                <h1 class="product__title">
+                                    <%= product.productId.title %>
+                                </h1>
+                            </header>
+
+                            <div class="card__content">
+                                <h2 class="product__price">$
+                                    <%= product.productId.price %>
+                                </h2>
+                                <h2 class="product__price">qty:
+                                    <%= product.quantity %>
+                                </h2>
+                                <p class="product__description">
+                                    <%= product.productId.description %>
+                                </p>
+                            </div>
+                            <div class="card__actions">
+                                <a href="/product/<%= product.productId.id %>" class="btn">Details</a>
+                                <form action="/delete-cart" method="POST">
+                                    <button class="btn">Remove Item</button>
+                                    <input type="hidden" name="productId" value="<%= product.productId._id %>">
+                                </form>
+                            </div>
+                        </article>
+                        <% } %>
+                </div>
+
+                <div>
+                    <hr>
+                    <form action="/create-order" method="post">
+                        <button type="submit" class="btn">Order Now</button>
+                    </form>
+                </div>
+
+
+                <% } else { %>
+                    <h1>No Products Found!</h1>
+                    <% } %>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../include/head.ejs') %>
+
+<body>
+    <%- include('../include/navbar.ejs') %>
+
+    <main>
+                <form class="login-form" action="/login" method="POST">
+                    <div class="form-control">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" >
+                    </div>
+                    <div class="form-control">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" >
+                    </div>
+                    
+                    <button type="submit">
+                        Login
+                    </button>
+                </form>
+            </main>

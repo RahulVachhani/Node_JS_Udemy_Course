@@ -47,7 +47,7 @@ class Product{
         .find()
         .toArray()
         .then(products => {
-            console.log(products);
+            // console.log(products);
             return products
         } )
         .catch(err => {
@@ -59,7 +59,7 @@ class Product{
         const db = getDb();
         return db.collection('products').findOne({ _id: new ObjectId(prodId) })
         .then(product => {
-            console.log(product);
+            // console.log(product);
             return product; // usually one product since _id is unique
         })
         .catch(err => {
